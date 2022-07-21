@@ -71,6 +71,7 @@
 
 - [LightAPIs/EnablePostsOrder](https://github.com/LightAPIs/EnablePostsOrder)：用于支持排序导航项目，推荐安装使用
 - [LightAPIs/EncryptYourSite](https://github.com/LightAPIs/EncryptYourSite)：用于加密导航站点，若导航为私人使用且不想每个知道导航域名的都能看到站点内容，则可以安装使用该插件
+- [LightAPIs/RelativePathOfAttachment](https://github.com/LightAPIs/RelativePathOfAttachment)：使上传附件时返回的附件地址为路径地址而非完整地址
 
 ## 相关项目
 

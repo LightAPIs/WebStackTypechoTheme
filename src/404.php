@@ -1,7 +1,5 @@
-<?php
-if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-define("THEME_URL", '/' . str_replace($this->options->siteUrl, "", $this->options->themeUrl));
-?>
+<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+
 <!DOCTYPE HTML>
 <html lang="zh">
 <?php $this->need('header.php'); ?>

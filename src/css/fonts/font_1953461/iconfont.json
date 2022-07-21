@@ -1,0 +1,233 @@
+{
+  "id": "1953461",
+  "name": "webstack导航主题钻芒二开",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1496125",
+      "name": "用户（女）",
+      "font_class": "user-girl",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "1510313",
+      "name": "生日",
+      "font_class": "birthday",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "1510314",
+      "name": "学位",
+      "font_class": "degree",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "1510316",
+      "name": "邮件",
+      "font_class": "email",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "1510317",
+      "name": "编辑",
+      "font_class": "edit",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "1510321",
+      "name": "地址",
+      "font_class": "position",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "1510323",
+      "name": "项目",
+      "font_class": "project",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "1510324",
+      "name": "设置",
+      "font_class": "set",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "1510327",
+      "name": "用户（男）",
+      "font_class": "user-boy",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "1510363",
+      "name": "机构",
+      "font_class": "college",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "1572152",
+      "name": "相机",
+      "font_class": "camera",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "1572457",
+      "name": "电脑",
+      "font_class": "pc",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "1572459",
+      "name": "对话",
+      "font_class": "prompt",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "1572460",
+      "name": "星星",
+      "font_class": "star",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "1572463",
+      "name": "手机",
+      "font_class": "phone",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "1572539",
+      "name": "奖牌",
+      "font_class": "medal",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "1572731",
+      "name": "错误",
+      "font_class": "debug",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "1572925",
+      "name": "声音",
+      "font_class": "sound",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "1573425",
+      "name": "手表",
+      "font_class": "watch",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "1573528",
+      "name": "电池",
+      "font_class": "battery",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "1609435",
+      "name": "小鸡",
+      "font_class": "chicken",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "3740474",
+      "name": "Au",
+      "font_class": "Au",
+      "unicode": "e7bd",
+      "unicode_decimal": 59325
+    },
+    {
+      "icon_id": "3740475",
+      "name": "Ai",
+      "font_class": "Ai",
+      "unicode": "e7be",
+      "unicode_decimal": 59326
+    },
+    {
+      "icon_id": "3740476",
+      "name": "PS",
+      "font_class": "PS",
+      "unicode": "e7bf",
+      "unicode_decimal": 59327
+    },
+    {
+      "icon_id": "3740477",
+      "name": "Dw",
+      "font_class": "Dw",
+      "unicode": "e7c0",
+      "unicode_decimal": 59328
+    },
+    {
+      "icon_id": "3740478",
+      "name": "Pr",
+      "font_class": "Pr",
+      "unicode": "e7c1",
+      "unicode_decimal": 59329
+    },
+    {
+      "icon_id": "3740479",
+      "name": "Ae",
+      "font_class": "Ae",
+      "unicode": "e7c2",
+      "unicode_decimal": 59330
+    },
+    {
+      "icon_id": "3740480",
+      "name": "Sublime",
+      "font_class": "Sublime",
+      "unicode": "e7c3",
+      "unicode_decimal": 59331
+    },
+    {
+      "icon_id": "3741594",
+      "name": "Ppt",
+      "font_class": "Ppt",
+      "unicode": "e7c4",
+      "unicode_decimal": 59332
+    },
+    {
+      "icon_id": "3741595",
+      "name": "Sheet",
+      "font_class": "Sheet",
+      "unicode": "e7c5",
+      "unicode_decimal": 59333
+    },
+    {
+      "icon_id": "3741596",
+      "name": "Word",
+      "font_class": "Word",
+      "unicode": "e7c6",
+      "unicode_decimal": 59334
+    },
+    {
+      "icon_id": "3741641",
+      "name": "An",
+      "font_class": "An",
+      "unicode": "e7c7",
+      "unicode_decimal": 59335
+    }
+  ]
+}

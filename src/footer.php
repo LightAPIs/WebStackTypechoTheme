@@ -65,7 +65,7 @@ error_reporting(0);
         });
     </script>
 <?php endif; ?>
-<script src="<?php echo THEME_URL ?>/js/index.min.js"></script>
+<script src="<?php echo THEME_URL ?>/js/index.js"></script>
 <script src="<?php echo THEME_URL ?>/js/zui.js"></script>
 <script src="<?php echo THEME_URL ?>/js/bootstrap.min.js"></script>
 <script src="<?php echo THEME_URL ?>/js/TweenMax.min.js"></script>

@@ -90,8 +90,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                  data-original-title="<?php echo $posts->fields->url; ?>">
                                 <div class="xe-comment-entry">
                                 <span class="xe-user-img">
-                                    <img src="<?php echo $posts->fields->logo; ?>" class="img-circle" width="54"
-                                         alt="<?php $posts->title(); ?>">
+                                    <?php if (strlen($posts->fields->logo) > 0) : ?>
+                                        <img src="<?php echo $posts->fields->logo; ?>" class="img-circle" width="54"
+                                             alt="<?php $posts->title(); ?>">
+                                    <?php else : ?>
+                                        <span class="img-circle no-img"><?php echo strlen($posts->title) > 0 ? mb_substr($posts->title, 0, 1) : '' ?></span>
+                                    <?php endif; ?>
                                 </span>
                                     <div class="xe-comment">
                                     <span href="javascript:void(0);" class="xe-user-name overflowClip_1">
@@ -116,7 +120,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <ul>
                 <li class="fk_service_box fk_service_sidebar visible-xs"
                     onclick="document.getElementById('01').click();" style="display: block;">
-                    <a id="01" href="#" rel="toggle-sidebar" class="fk_service_box fk_service_sidebar" title="切换侧栏" data-toggle="mobile-menu">1</a>
+                    <a id="01" href="#" rel="toggle-sidebar" class="fk_service_box fk_service_sidebar" title="切换侧栏"
+                       data-toggle="mobile-menu">1</a>
                 </li>
                 <li class="fk_service_box fk_service_upward"
                     onclick="document.getElementById('02').click();" style="display: block;">

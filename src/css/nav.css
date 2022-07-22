@@ -339,11 +339,24 @@ body.night .search-engine ul::before {
   transition: all 0.3s ease;
 }
 
-.xe-comment-entry img {
+.xe-comment-entry img,
+.xe-comment-entry .no-img {
   float: left;
   display: block;
   margin-right: 10px;
-  border-radius: 50px;
+}
+
+.xe-comment-entry .no-img {
+  width: 54px;
+  height: 54px;
+  font-size: 2em;
+  background: #e8e1e1;
+  text-align: center;
+  line-height: 54px;
+}
+
+body.night .xe-comment-entry .no-img {
+  background: #282b2d;
 }
 
 .xe-comment p {

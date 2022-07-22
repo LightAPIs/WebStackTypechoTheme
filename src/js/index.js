@@ -3103,11 +3103,12 @@ function search() {
   const curNavList = [];
   const navList = document.querySelectorAll('.main-content .label-info');
   navList.forEach(item => {
+    const userImg = item.querySelector('.xe-user-img img');
     curNavList.push({
       url: item.dataset.originalTitle || '',
       title: item.querySelector('strong').textContent.trim() || '',
       des: item.querySelector('p').textContent.trim() || '',
-      src: item.querySelector('.xe-user-img img').src || '',
+      src: (userImg && userImg.src) || '',
     });
   });
 

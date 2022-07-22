@@ -3155,9 +3155,16 @@ function search() {
       $('#box').css('display', 'block');
       for (let i = 0; i < res.length; i++) {
         const { url, title, des, src } = res[i];
-        $('#box ul').append(
-          `<li><span><img class="img-circle" src="${src}" /></span> <a href="${url}" target="_blank" title="${des}">${title} <small>${des}</small></a></li>`
-        );
+        if (src) {
+          $('#box ul').append(
+              `<li><span><img class="img-circle" src="${src}" /></span> <a href="${url}" target="_blank" title="${des}">${title} <small>${des}</small></a></li>`
+          );
+        } else {
+          const tit = title.substring(0, 1);
+          $('#box ul').append(
+              `<li><span class="img-circle no-img">${tit}</span> <a href="${url}" target="_blank" title="${des}">${title} <small>${des}</small></a></li>`
+          );
+        }
       }
     } else {
       $('#box').css('display', 'none');

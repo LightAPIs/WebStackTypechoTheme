@@ -3121,10 +3121,14 @@ function search() {
   function getNavKeyword(val) {
     const results = [];
     if (val) {
+      const lowVal = val.toLowerCase();
       for (const ele of curNavList) {
         const { url, title, des } = ele;
-        if (url.includes(val) || title.includes(val) || des.includes(val)) {
-          //! 区分大小写
+        const lowUrl = url.toLowerCase();
+        const lowTitle = title.toLowerCase();
+        const lowDes = des.toLowerCase();
+        if (lowUrl.includes(lowVal) || lowTitle.includes(lowVal) || lowDes.includes(lowVal)) {
+          //! 不区分大小写
           let eq = false;
           for (const item of results) {
             if (isEqual(item, ele)) {

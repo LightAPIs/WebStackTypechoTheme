@@ -240,4 +240,94 @@ function themeFields($layout)
     $layout->addItem($url);
     $layout->addItem($text);
     $layout->addItem($logo);
+    logoPreview();
+}
+
+function logoPreview() {
+    if (!isset($a)) {
+        static $a = 0;
+        if ($a == 0) {
+            $defaultTip = _t('请输入 Logo 的 URL');
+            echo <<<EOD
+<style>
+.webstack-theme-preview-span {
+    float: right;
+    margin-right: 1%;
+}
+.webstack-theme-preview-image {
+    max-width: 54px;
+    max-height: 54px;
+}
+</style>
+<script type="text/javascript">
+function webstackImageHandler(imgDom, loadCallback, errorCallback) {
+    if (imgDom.complete) {
+        if (typeof loadCallback === 'function') {
+            loadCallback(imgDom);
+        }
+    } else {
+        imgDom.onload = function () {
+            if (typeof loadCallback === 'function') {
+                loadCallback(imgDom);
+            }
+        };
+        imgDom.onerror = function () {
+            if (typeof errorCallback === 'function') {
+                errorCallback();
+            }
+        };
+    }
+}
+window.onload = function() {
+    const logoInput = document.querySelector('input[name="fields[logo]"]');
+    if (logoInput) {
+        const defaultTip = "$defaultTip";
+        const previewSpan = document.createElement('span');
+        previewSpan.className = 'webstack-theme-preview-span';
+        const img = document.createElement('img');
+        img.className = 'webstack-theme-preview-image';
+        img.src = logoInput.value;
+        const p = logoInput.parentNode.querySelector('.description');
+        if (logoInput.value.length === 0) {
+            img.style.display = 'none';
+        } else {
+            webstackImageHandler(
+                img,
+                imgDom => {
+                    p.textContent = '( ' + imgDom.naturalWidth + ' x ' + imgDom.naturalHeight + ' )';
+                },
+                () => {
+                    img.style.display = 'none';
+                    p.textContent = defaultTip; 
+                }
+            );
+        }
+        previewSpan.appendChild(img);
+        logoInput.after(previewSpan);
+        logoInput.addEventListener('change', e => {
+            img.src = e.target.value;
+            if (e.target.value) {
+                img.style.display = 'block';
+                webstackImageHandler(
+                    img,
+                    imgDom => {
+                        p.textContent = '( ' + imgDom.naturalWidth + ' x ' + imgDom.naturalHeight + ' )';
+                    },
+                    () => {
+                        img.style.display = 'none';
+                        p.textContent = defaultTip;                        
+                    }
+                );
+            } else {
+                img.style.display = 'none';
+                p.textContent = defaultTip;
+            }
+        });
+    }
+};
+</script>
+EOD;
+        }
+        $a++;
+    }
 }

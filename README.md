@@ -73,6 +73,10 @@
 - [LightAPIs/EncryptYourSite](https://github.com/LightAPIs/EncryptYourSite)：用于加密导航站点，若导航为私人使用且不想每个知道导航域名的都能看到站点内容，则可以安装使用该插件
 - [LightAPIs/RelativePathOfAttachment](https://github.com/LightAPIs/RelativePathOfAttachment)：使上传附件时返回的附件地址为路径地址而非完整地址
 
+一些提供功能增强的浏览器插件：
+
+- [LightAPIs/webstack-get-site-favicon](https://github.com/LightAPIs/webstack-get-site-favicon)：实现在编辑页面中查询跳转链接网站图标的功能
+
 ## 相关项目
 
 本项目的诞生离不开以下这些优秀的项目：

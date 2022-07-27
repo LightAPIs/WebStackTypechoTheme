@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html lang="zh">
 <?php $this->need('header.php'); ?>
-<body class="page-body <?php echo $_COOKIE['night'] == '1' ? 'night' : ''; ?>">
+<body class="page-body <?php echo isset($_COOKIE['night']) && $_COOKIE['night'] == '1' ? 'night' : ''; ?>">
 <div class="main-content">
     <div class="error-page text-center">
         <h1 class="error-page-title">404 - <?php _e('您要找的页面未找到。'); ?></h1>

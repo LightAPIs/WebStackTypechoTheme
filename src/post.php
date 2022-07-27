@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <?php $this->need('header.php'); ?>
 <html lang="zh">
-<body class="page-body <?php echo($_COOKIE['night'] == '1' ? 'night' : ''); ?>">
+<body class="page-body <?php echo isset($_COOKIE['night']) && $_COOKIE['night'] == '1' ? 'night' : ''; ?>">
 
 <div class="main-content">
     <div class="col-md-12">

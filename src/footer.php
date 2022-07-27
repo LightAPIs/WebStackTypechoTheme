@@ -132,14 +132,14 @@ error_reporting(0);
         const modeSwitch = document.querySelector('.my_mode_switch');
         modeSwitch && modeSwitch.addEventListener('click', e => {
             e.stopPropagation();
-            if (cookie.get('night') === '0') {
-                document.body.classList.add('night');
-                cookie.set('night', '1');
-                console.log('开启夜间模式');
-            } else {
+            if (cookie.get('night') === '1') {
                 document.body.classList.remove('night');
                 cookie.set('night', '0');
                 console.log('关闭夜间模式');
+            } else {
+                document.body.classList.add('night');
+                cookie.set('night', '1');
+                console.log('开启夜间模式');
             }
         });
         <?php endif; ?>

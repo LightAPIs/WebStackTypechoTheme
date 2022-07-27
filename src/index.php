@@ -7,7 +7,7 @@
  *
  * @package WebStack Typecho Theme
  * @author Light
- * @version 1.0.0
+ * @version 1.1.0
  * @link https://github.com/LightAPIs
  */
 

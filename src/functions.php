@@ -257,6 +257,7 @@ function logoPreview() {
 .webstack-theme-preview-image {
     max-width: 54px;
     max-height: 54px;
+    border-radius: 50%;
 }
 </style>
 <script type="text/javascript">
@@ -286,6 +287,7 @@ window.onload = function() {
         previewSpan.className = 'webstack-theme-preview-span';
         const img = document.createElement('img');
         img.className = 'webstack-theme-preview-image';
+        img.width = 54;
         img.src = logoInput.value;
         const p = logoInput.parentNode.querySelector('.description');
         if (logoInput.value.length === 0) {

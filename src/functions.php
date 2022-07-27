@@ -248,6 +248,10 @@ function logoPreview() {
         static $a = 0;
         if ($a == 0) {
             $defaultTip = _t('请输入 Logo 的 URL');
+            $logoTitle = _t('填写 Logo');
+            $logoDes = _t('请在下方的输入框内输入要填写的 Logo 地址');
+            $okText = _t('确定');
+            $cancelText = _t('取消');
             echo <<<EOD
 <style>
 .webstack-theme-preview-span {
@@ -258,6 +262,15 @@ function logoPreview() {
     max-width: 54px;
     max-height: 54px;
     border-radius: 50%;
+}
+.webstack-wmd-prompt {
+    position: absolute;
+    top: 0px;
+    z-index: 1000;
+    opacity: 0.5;
+    height: 100%;
+    left: 0px;
+    width: 100%;
 }
 </style>
 <script type="text/javascript">
@@ -278,6 +291,51 @@ function webstackImageHandler(imgDom, loadCallback, errorCallback) {
             }
         };
     }
+}
+function webstackCreateDialog(filename, url, okCallback, cancelCallback) {
+    const dialogDiv = document.createElement('div');
+    dialogDiv.className = 'wmd-prompt-dialog';
+    dialogDiv.setAttribute('role', 'dialog');
+    const textDiv = document.createElement('div');
+    textDiv.innerHTML = '<p><b>$logoTitle (' + filename + ')</b></p><p>$logoDes</p>';
+    const logoForm = document.createElement('form');
+    const textInput = document.createElement('input');
+    textInput.type = 'text';
+    textInput.value = url;
+    const okBtn = document.createElement('button');
+    okBtn.type = 'button';
+    okBtn.className = 'btn btn-s primary';
+    okBtn.textContent = '$okText';
+    okBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        if (typeof okCallback === 'function') {
+            okCallback(textInput);
+        }
+        dialogDiv && dialogDiv.remove();
+    });
+    const cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.className = 'btn btn-s';
+    cancelBtn.textContent = '$cancelText';
+    cancelBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        if (typeof cancelCallback === 'function') {
+            cancelCallback();
+        }
+        dialogDiv && dialogDiv.remove();
+    })
+    logoForm.appendChild(textInput);
+    logoForm.appendChild(okBtn);
+    logoForm.appendChild(cancelBtn);
+    dialogDiv.appendChild(textDiv);
+    dialogDiv.appendChild(logoForm);
+    return dialogDiv;
+}
+function webstackCreatePrompt() {
+    const prompt = document.createElement('div');
+    prompt.className = 'wmd-prompt-background webstack-wmd-prompt';
+    prompt.style.height = document.body.clientHeight + 'px';
+    return prompt;
 }
 window.onload = function() {
     const logoInput = document.querySelector('input[name="fields[logo]"]');
@@ -325,6 +383,39 @@ window.onload = function() {
                 p.textContent = defaultTip;
             }
         });
+        
+        if (window.Typecho && window.Typecho.insertFileToEditor) {
+            window.Typecho.insertFileToEditor = function(file, url, _isImage) {
+                const prompt = webstackCreatePrompt();
+                const dialog = webstackCreateDialog(file, url, textInput => {
+                    logoInput.value = textInput.value;
+                    img.src = logoInput.value;
+                    if (logoInput.value.length === 0) {
+                        img.style.display = 'none';
+                        p.textContent = defaultTip;
+                    } else {
+                        img.style.display = 'block';
+                        webstackImageHandler(
+                            img,
+                            imgDom => {
+                                p.textContent = '( ' + imgDom.naturalWidth + ' x ' + imgDom.naturalHeight + ' )';
+                            },
+                            () => {
+                                img.style.display = 'none';
+                                p.textContent = defaultTip; 
+                            }
+                        );
+                    }
+                    prompt && prompt.remove();
+                }, () => {
+                    prompt && prompt.remove();
+                });
+                setTimeout(() => {
+                    document.body.appendChild(prompt);
+                    document.body.appendChild(dialog);
+                }, 0);
+            }
+        }
     }
 };
 </script>

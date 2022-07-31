@@ -6,7 +6,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeConfig($form)
 {
-    $v_time = '1.1.0';
+    $v_time = '1.2.0';
     $theme_url = '/' . str_replace(Helper::options()->siteUrl, "", Helper::options()->themeUrl);
 
     echo <<<EOD

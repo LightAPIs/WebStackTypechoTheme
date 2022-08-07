@@ -3019,7 +3019,7 @@ function search() {
     {
       name: '百度',
       position: '-10px -10px',
-      url: 'https://www.baidu.com/s?wd=',
+      url: 'https://www.baidu.com/s?ie=UTF-8&wd=',
     },
     {
       name: '谷歌',
@@ -3055,11 +3055,6 @@ function search() {
       name: '天猫',
       position: '-62px -114px',
       url: 'https://list.tmall.com/search_product.htm?q=',
-    },
-    {
-      name: '1688',
-      position: '-114px -114px',
-      url: 'https://s.1688.com/selloffer/offer_search.htm?keywords=',
     },
     {
       name: '知乎',
@@ -3161,12 +3156,12 @@ function search() {
         const { url, title, des, src } = res[i];
         if (src) {
           $('#box ul').append(
-              `<li><span><img class="img-circle" src="${src}" /></span> <a href="${url}" target="_blank" title="${des}">${title} <small>${des}</small></a></li>`
+            `<li><span><img class="img-circle" src="${src}" /></span> <a href="${url}" target="_blank" title="${des}">${title} <small>${des}</small></a></li>`
           );
         } else {
           const tit = title.substring(0, 1);
           $('#box ul').append(
-              `<li><span class="img-circle no-img">${tit}</span> <a href="${url}" target="_blank" title="${des}">${title} <small>${des}</small></a></li>`
+            `<li><span class="img-circle no-img">${tit}</span> <a href="${url}" target="_blank" title="${des}">${title} <small>${des}</small></a></li>`
           );
         }
       }

@@ -1842,8 +1842,12 @@ body {
 }
 
 .sidebar-menu .main-menu a > i {
-  display: inline-block;
   margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
 }
 
 .sidebar-menu .main-menu a > i + span {

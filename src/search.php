@@ -1,7 +1,7 @@
 <section class="sousuo">
   <div class="search">
     <div class="search-box">
-      <span class="search-icon" style="background: url(<?php echo THEME_URL ?>/images/search_icon.png) 0px 0px; opacity: 1;"></span>
+      <span class="search-icon" style="background: url(<?php echo THEME_URL ?>/fonts/baidu.svg) 0px 0px; opacity: 1;"></span>
       <input type="text" id="txt" class="search-input"  autocomplete="off"  placeholder="输入关键字，按下回车搜索">
       <button class="search-btn" id="search-btn"><i class="fa fa-search"></i></button>
     </div>

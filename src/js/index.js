@@ -3005,89 +3005,107 @@ function loaded() {
   mobileUser();
 }
 function search() {
-  const searchImg = `url('${themeUrl}/images/search_icon.png')`;
-  $('.search-icon').css('opacity', '1');
-  $('.search-icon').css('background-image', searchImg);
+  const searchImg = `url('${themeUrl}/fonts/baidu.svg')`;
   let listIndex = -1;
   let hotList = 0;
   let savedData = {
-    url: 'https://www.baidu.com/s?wd=',
-    position: '-10px -10px',
+    url: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+    logo: '/fonts/baidu.svg',
     hotStatus: true,
   };
   const searchData = [
     {
       name: '百度',
-      position: '-10px -10px',
       url: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+      logo: '/fonts/baidu.svg',
     },
     {
       name: '谷歌',
-      position: '-62px -10px',
       url: 'https://www.google.com/search?q=',
+      logo: '/fonts/google.svg',
     },
     {
       name: '必应',
-      position: '-10px -62px',
       url: 'https://cn.bing.com/search?q=',
+      logo: '/fonts/bing.svg',
     },
     {
       name: '好搜',
-      position: '-62px -62px',
       url: 'https://www.so.com/s?q=',
+      logo: '/fonts/360so.svg',
     },
     {
       name: '搜狗',
-      position: '-114px -10px',
       url: 'https://www.sogou.com/web?query=',
+      logo: '/fonts/sogou.svg',
+    },
+    {
+      name: 'Yandex',
+      url: 'https://yandex.ru/search/?text=',
+      logo: '/fonts/yandex.svg',
     },
     {
       name: '淘宝',
-      position: '-114px -62px',
       url: 'https://s.taobao.com/search?q=',
+      logo: '/fonts/taobao.svg',
     },
     {
       name: '京东',
-      position: '-10px -114px',
-      url: 'http://search.jd.com/Search?keyword=',
+      url: 'https://search.jd.com/Search?keyword=',
+      logo: '/fonts/jd.svg',
     },
     {
       name: '天猫',
-      position: '-62px -114px',
       url: 'https://list.tmall.com/search_product.htm?q=',
+      logo: '/fonts/tmall.svg',
     },
     {
       name: '知乎',
-      position: '-166px -10px',
       url: 'https://www.zhihu.com/search?type=content&q=',
+      logo: '/fonts/zhihu.svg',
     },
     {
       name: '微博',
-      position: '-166px -62px',
       url: 'https://s.weibo.com/weibo/',
+      logo: '/fonts/weibo.svg',
     },
     {
       name: '豆瓣',
-      position: '-166px -114px',
       url: 'https://www.douban.com/search?source=suggest&q=',
-    },
-    {
-      name: '优酷',
-      position: '-10px -166px',
-      url: 'https://so.youku.com/search_video/q_',
+      logo: '/fonts/douban.svg',
     },
     {
       name: 'GitHub',
-      position: '-62px -166px',
       url: 'https://github.com/search?utf8=✓&q=',
+      logo: '/fonts/github.svg',
     },
     {
-      name: 'B站',
-      position: '-114px -166px',
-      url: 'http://search.bilibili.com/all?keyword=',
+      name: '维基百科',
+      url: 'https://zh.wikipedia.org/wiki/',
+      logo: '/fonts/wiki.svg',
     },
+    {
+      name: 'Bilibili',
+      url: 'https://search.bilibili.com/all?keyword=',
+      logo: '/fonts/bilibili.svg',
+    },
+    {
+      name: '优酷',
+      url: 'https://so.youku.com/search_video/q_',
+      logo: '/fonts/youku.svg',
+    },
+    {
+      name: '爱奇艺',
+      url: 'https://so.iqiyi.com/so/q_',
+      logo: '/fonts/iqiyi.svg',
+    },
+    {
+      name: '腾讯视频',
+      url: 'https://v.qq.com/x/search/?q=',
+      logo: '/fonts/qq.svg'
+    }
   ];
-  var localSavedData = localStorage.getItem('savedData');
+  const localSavedData = localStorage.getItem('savedSearch');
   if (localSavedData) {
     savedData = JSON.parse(localSavedData);
   }
@@ -3220,9 +3238,9 @@ function search() {
       $('#box').css('display', 'none');
     }, 250);
   });
-  for (var i = 0; i < searchData.length; i++) {
+  for (let i = 0; i < searchData.length; i++) {
     $('.search-engine-list').append(
-      `<li><i style="background-image:${searchImg}; background-position: ${searchData[i].position};"/></i><span>${searchData[i].name}</span></li>`
+      `<li><i style="background-image:url(${themeUrl + searchData[i].logo}); background-size: 32px 32px;"/></i><span>${searchData[i].name}</span></li>`
     );
   }
   $('.search-icon, .search-engine').hover(
@@ -3240,7 +3258,9 @@ function search() {
   });
   savedData.hotStatus ? $('#hot-btn').removeClass('off') : $('#hot-btn').addClass('off');
 
-  $('.search-icon').css('background-position', savedData.position);
+  $('.search-icon').css('background-size', '32px 32px');
+  $('.search-icon').css('background-image', `url(${themeUrl + savedData.logo})`);
+  $('.search-icon').css('opacity', '1');
   $('#search-btn').click(function () {
     const textValue = $('#txt').val();
     if (textValue) {
@@ -3254,12 +3274,12 @@ function search() {
   });
 
   $('.search-engine-list li').click(function () {
-    var index = $(this).index();
-    savedData.position = searchData[index].position;
-    $('.search-icon').css('background-position', savedData.position);
+    const index = $(this).index();
+    savedData.logo = searchData[index].logo;
+    $('.search-icon').css('background-image', `url(${themeUrl + savedData.logo})`);
     savedData.url = searchData[index].url;
     $('.search-engine').css('display', 'none');
-    localStorage.savedData = JSON.stringify(savedData);
+    localStorage.setItem('savedSearch', JSON.stringify(savedData));
   });
 }
 var customizeState = false;

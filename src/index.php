@@ -33,9 +33,16 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 </li>
             </ul>
         </div>
-        <?php if ($this->options->zmki_ah == '2') : ?>
-            <div class="my_mode_switch" title="切换模式"></div>
-        <?php endif; ?>
+        <div class="my_mode_switch" title="切换模式"></div>
+        <div class="dark_mode_list dropdown xs-left">
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-header">选择模式</li>
+                <li class="dark_mode_li"><span class="dark_mode_sun"><i></i>日间模式</span></li>
+                <li class="dark_mode_li"><span class="dark_mode_night"><i></i>夜间模式</span></li>
+                <li class="dark_mode_li"><span class="dark_mode_system"><i></i>跟随系统</span></li>
+                <li class="dark_mode_li"><span class="dark_mode_auto"><i></i>自动切换</span></li>
+            </ul>
+        </div>
     </div>
     <!--顶部美化结束-->
     <div class="main-content">

@@ -171,9 +171,6 @@ EOD;
     // 手机端每行显示数量
     $zmki_wapsl = new Typecho_Widget_Helper_Form_Element_Radio('zmki_wapsl', array('0' => _t('单栏'), '1' => _t('双栏'), '2' => _t('三栏')), '0', _t('<svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-phone"></use></svg> 手机端栏目数量'), _t("手机端显示数量的布局。此功能可避免页面过于庸长，默认单栏，推荐双栏显示<br>注意：如调整失效，请刷新请浏览器缓存"));
     $form->addInput($zmki_wapsl);
-    // 暗黑开关
-    $zmki_ah = new Typecho_Widget_Helper_Form_Element_Radio('zmki_ah', array('0' => _t('跟随系统'), '1' => _t('自动切换'), '2' => _t('手动切换')), '1', _t('<svg class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-battery"></use></svg> 暗黑模式'), _t("跟随系统：跟随系统设置；自动切换：19:00~7:00；手动切换：主页上显示暗黑模式开关"));
-    $form->addInput($zmki_ah);
     // 顶部模块
     $zmki_top_main = new Typecho_Widget_Helper_Form_Element_Radio('zmki_top_main', array('0' => _t('禁用'), '1' => _t('启用')), '1', _t('<svg class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-prompt"></use></svg> <span style="color: #608cee; margin-right:0px;">顶部</span><span style="color: #fb5962;margin-right:0px;">多色</span><span style="color: #fbb359;margin-right:0px;">模块</span><span style="color: #53bf6b;margin-right:0px;">开关</span>'), _t("是否开启网站顶部四项多色小模块"));
     $form->addInput($zmki_top_main);

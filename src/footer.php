@@ -93,56 +93,89 @@ error_reporting(0);
             }
         }
 
-        <?php if ($this->options->zmki_ah == '0') : ?>
-        // 跟随系统
-        const matches = matchMedia('(prefers-color-scheme: dark)').matches;
-        if (matches) {
-            document.body.classList.add('night');
-            if (cookie.get('night') !== '1') {
-                cookie.set('night', '1');
-                console.log('跟随系统开启夜间模式');
-            }
-        } else {
-            document.body.classList.remove('night');
-            if (cookie.get('night') !== '0') {
-                cookie.set('night', '0');
-                console.log('跟随系统关闭夜间模式');
+        function darkHandler(darkMode, mode, write = false) {
+            write && write && cookie.set('dark_mode', darkMode);
+            const night = cookie.get('night');
+            if (darkMode === '1') {
+                // 夜间模式
+                mode && (mode.style.backgroundImage = 'url(<?php echo THEME_URL ?>/fonts/night.svg)');
+                if (night !== '1') {
+                    document.body.classList.add('night');
+                    cookie.set('night', '1');
+                    console.log('开启夜间模式');
+                }
+            } else if (darkMode === '2') {
+                // 跟随系统
+                mode && (mode.style.backgroundImage = 'url(<?php echo THEME_URL ?>/fonts/system.svg)');
+                const matches = matchMedia('(prefers-color-scheme: dark)').matches;
+                if (matches) {
+                    if (night !== '1') {
+                        document.body.classList.add('night');
+                        cookie.set('night', '1');
+                        console.log('跟随系统开启夜间模式');
+                    }
+                } else {
+                    if (night !== '0') {
+                        document.body.classList.remove('night');
+                        cookie.set('night', '0');
+                        console.log('跟随系统关闭夜间模式');
+                    }
+                }
+            } else if (darkMode === '3') {
+                // 自动切换
+                mode && (mode.style.backgroundImage = 'url(<?php echo THEME_URL ?>/fonts/auto.svg)');
+                const hours = new Date().getHours();
+                if (hours > 19 || hours < 7) {
+                    if (night !== '1') {
+                        document.body.classList.add('night');
+                        cookie.set('night', '1');
+                        console.log('夜间模式自动开启');
+                    }
+                } else {
+                    if (night !== '0') {
+                        document.body.classList.remove('night');
+                        cookie.set('night', '0');
+                        console.log('夜间模式自动关闭');
+                    }
+                }
+            } else {
+                // 日间模式
+                mode && (mode.style.backgroundImage = 'url(<?php echo THEME_URL ?>/fonts/sun.svg)');
+                if (night !== '0') {
+                    document.body.classList.remove('night');
+                    cookie.set('night', '0');
+                    console.log('开启日间模式');
+                }
             }
         }
-        <?php elseif ($this->options->zmki_ah == '1') : ?>
-        // 自动切换
-        if (new Date().getHours() >
-            19 ||
-            new Date().getHours() <
-            7) {
-            document.body.classList.add('night');
-            if (cookie.get('night') !== '1') {
-                cookie.set('night', '1');
-                console.log('夜间模式自动开启');
-            }
-        } else {
-            document.body.classList.remove('night');
-            if (cookie.get('night') !== '0') {
-                cookie.set('night', '0');
-                console.log('夜间模式自动关闭');
-            }
-        }
-        <?php else : ?>
-        // 手动切换夜间模式
+
+        // 暗黑模式
+        const dark = cookie.get('dark_mode');
+        // 模式开关
         const modeSwitch = document.querySelector('.my_mode_switch');
+        darkHandler(dark, modeSwitch);
+        const darkList = document.querySelector('.dark_mode_list');
+
         modeSwitch && modeSwitch.addEventListener('click', e => {
             e.stopPropagation();
-            if (cookie.get('night') === '1') {
-                document.body.classList.remove('night');
-                cookie.set('night', '0');
-                console.log('关闭夜间模式');
-            } else {
-                document.body.classList.add('night');
-                cookie.set('night', '1');
-                console.log('开启夜间模式');
+            if (darkList) {
+                if (darkList.classList.contains('open')) {
+                    darkList.classList.remove('open');
+                } else {
+                    darkList.classList.add('open');
+                }
             }
         });
-        <?php endif; ?>
+
+        const modeSelectors = ['.dark_mode_sun', '.dark_mode_night', '.dark_mode_system', '.dark_mode_auto']
+        modeSelectors.forEach((selector, index) => {
+            const ele = document.querySelector(selector);
+            ele && ele.addEventListener('click', e => {
+                e.stopPropagation();
+                darkHandler(String(index), modeSwitch, true);
+                darkList && darkList.classList.remove('open');
+            })
+        })
     })();
 </script>
 
@@ -160,10 +193,51 @@ error_reporting(0);
     <?php endif; ?>
 
     .my_mode_switch {
+        background-image: url("<?php echo THEME_URL ?>/fonts/sun.svg");
+    }
+
+    body.night .dropdown-menu {
+        background-color: #221e1e;
+        border: 1px solid #232b32;
+    }
+
+    .dark_mode_list ul {
+        margin-top: 40px;
+        min-width: 80px;
+    }
+
+    .dark_mode_list .dark_mode_li {
+        height: 24px;
+        padding: 0 10px;
+    }
+
+    .dark_mode_list .dark_mode_li span {
+        display: inline-flex;
+        cursor: pointer;
+    }
+
+    .dark_mode_list i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-size: 16px 16px;
+        margin-right: 5px;
+    }
+
+    .dark_mode_sun i {
+        background-image: url("<?php echo THEME_URL ?>/fonts/sun.svg");
+    }
+
+    .dark_mode_night i {
         background-image: url("<?php echo THEME_URL ?>/fonts/night.svg");
     }
-    body.night .my_mode_switch {
-        background-image: url("<?php echo THEME_URL ?>/fonts/sun.svg");
+
+    .dark_mode_system i {
+        background-image: url("<?php echo THEME_URL ?>/fonts/system.svg");
+    }
+
+    .dark_mode_auto i {
+        background-image: url("<?php echo THEME_URL ?>/fonts/auto.svg");
     }
 
     span.title, .main-menu {

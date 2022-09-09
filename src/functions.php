@@ -121,8 +121,9 @@ EOD;
 <script src="$theme_url/js/jquery.min.js"></script>
 <script src="$theme_url/js/bootstrap.min.js"></script>
 <hr>
-<p class="active-tab"><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-project"></use></svg> WebStack 网址导航 Typecho 主题</strong></p>
-<p class="previous-tab"><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-chicken"></use></svg> 主题版本号: </strong>$v_time</p>
+<p><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-project"></use></svg> WebStack 网址导航 Typecho 主题</strong></p>
+<p><strong><svg  class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-chicken"></use></svg> 主题版本号: </strong>$v_time<span class="new_version_span" style="margin-left:25px;"></span></p>
+<p><button class="check_update_btn btn">检查更新</button></p>
 <hr>
 <ul id="myTab" class="nav nav-tabs">
 <li class="active"><a href="#home" data-toggle="tab">备份与恢复</a></li>
@@ -154,6 +155,48 @@ EOD;
 <svg class="icon zmki_aliico" aria-hidden="true"><use xlink:href="#icon-set"></use></svg>&nbsp;
 <b>提示：主题设置选择后回车可快捷保存</b>
 <hr>
+<script type="text/javascript">
+    const checkUpdateBtn = document.querySelector('.check_update_btn');
+    const newVersionSpan = document.querySelector('.new_version_span');
+    const curVersion = '$v_time';
+    if (checkUpdateBtn && newVersionSpan) {
+        checkUpdateBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            fetch('https://api.github.com/repos/LightAPIs/WebStackTypechoTheme/releases/latest')
+                .then(res => res.json())
+                .then(json => {
+                    const tagName = json.tag_name;
+                    if (tagName && tagName.startsWith('v')) {
+                        const tag = tagName.replace('v', '');
+                        const cur = curVersion.split('.');
+                        const next = tag.split('.');
+                        if (cur.length >= 3 && next.length >= 3) {
+                            let isUpdate = false;
+                            for (let i = 2; i >= 0; i--) {
+                                if (cur[i] < next[i]) {
+                                    isUpdate = true;
+                                } else if (cur[i] > next[i]) {
+                                    isUpdate = false;
+                                }
+                            }
+                            if (isUpdate) {
+                                newVersionSpan.innerHTML = '<a href="https://github.com/LightAPIs/WebStackTypechoTheme/releases/latest" target="_blank">前往下载新板本：' + tag + '</a>';
+                            } else {
+                                newVersionSpan.textContent = '当前已是最新版本。'
+                            }
+                        } else {
+                            newVersionSpan.textContent = '版本号格式不正确！'                            
+                        }
+                    } else {
+                        newVersionSpan.textContent = '无法查询到版本号！'                           
+                    }
+                })
+                .catch(_e => {
+                    newVersionSpan.textContent = '检查更新出错！'
+                })
+        })
+    }
+</script>
 EOD;
 
     // 左侧 logo

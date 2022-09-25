@@ -1921,17 +1921,6 @@ body {
   position: relative;
 }
 
-@media screen and (min-width: 768px) {
-  .sidebar-menu .main-menu ul li.is-hidden {
-    left: -20px;
-    zoom: 1;
-    filter: alpha(opacity=0);
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    opacity: 0;
-  }
-}
-
 .sidebar-menu .main-menu ul li.is-shown {
   left: 0;
   zoom: 1;
@@ -2146,6 +2135,15 @@ body {
   .sidebar-menu.collapsed .main-menu > li {
     text-align: center;
     position: relative;
+  }
+
+  .sidebar-menu .main-menu ul li.is-hidden {
+    left: -20px;
+    zoom: 1;
+    filter: alpha(opacity=0);
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0;
   }
 
   .sidebar-menu.collapsed .main-menu > li.active,

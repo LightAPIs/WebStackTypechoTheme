@@ -45,7 +45,7 @@ error_reporting(0);
     <script type="text/javascript">
         const mainMenu = document.querySelector('#main-menu');
         $("a.smooth").click(function (e) {
-            const isMobile = document.querySelector('html').classList.contains('device-mobile');
+            const isMobile = document.querySelector('html').classList.contains('screen-phone');
             $("#main-menu li").each(function () {
                 $(this).removeClass("active");
             });

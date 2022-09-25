@@ -778,6 +778,11 @@ body.night .EKHJj {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@media screen and (max-width: 995px) {
+  .board {
+    padding-left: 100px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .board {

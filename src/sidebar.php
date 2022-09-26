@@ -16,14 +16,14 @@
                         <li>
                             <a href="<?php if ($this->is('index')): ?><?php else: ?>/<?php endif; ?>#<?php $categorys->name(); ?>"
                                class="smooth">
-                                <i class="fa fa-<?php $categorys->slug(); ?>"></i>
+                                <i class="fa fa-<?php echo str_replace('fa-', '', $categorys->slug); ?>"></i>
                                 <span class="title"><?php $categorys->name(); ?></span>
                             </a>
                         </li>
                     <?php } else { ?>
                         <li>
                             <a>
-                                <i class="fa fa-<?php $categorys->slug(); ?>"></i>
+                                <i class="fa fa-<?php echo str_replace('fa-', '', $categorys->slug); ?>"></i>
                                 <span class="title"><?php $categorys->name(); ?></span>
                             </a>
                             <ul>

@@ -46,6 +46,8 @@
 
 在后台的分类管理页面(默认：`/admin/manage-categories.php`)中可以添加或编辑分类，其对应导航页中左侧边栏里的菜单项，一般可以按照网址的类别来进行分类。
 
+填写分类缩略名可实现为菜单项显示图标的功能，例如在分类缩略名处填写 `book` 或者 `fa-book` 时，将在菜单项前面显示一个书本的小图标。具体可用的分类缩略名可以查看：[Font Awesome Icons](https://fontawesome.com/v4/icons/)。
+
 ### 添加项目
 
 在后台的文章管理页面(默认：`/admin/manage-posts.php`)中可以添加或编辑具体的网址导航项目。

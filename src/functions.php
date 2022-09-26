@@ -220,28 +220,28 @@ EOD;
     // 顶部模块 蓝色 文字自定义
     $zmki_top_main_one_name = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_one_name', NULL, '项目地址', _t('<span style="color: #608cee; margin-right:0px;">蓝色模块文字</span>'), _t('输入顶部蓝色模块内的文字，默认 项目地址'));
     $form->addInput($zmki_top_main_one_name);
-    $zmki_top_main_one_icon = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_one_icon', NULL, 'fa fa-safari', _t('<span style="color: #608cee; margin-right:0px;">蓝色模块</span>图标'), _t('自定义蓝色模块内文字前的 Font Awesome 图标，图标帮助可查看:<a target="_blank" href="http://www.fontawesome.com.cn/icons-ui/">Font Awesome 中文网</a>，蓝色默认 fa fa-safari'));
+    $zmki_top_main_one_icon = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_one_icon', NULL, 'fa fa-safari', _t('<span style="color: #608cee; margin-right:0px;">蓝色模块</span>图标'), _t('自定义蓝色模块内文字前的 Font Awesome 图标，图标帮助可查看:<a target="_blank" href="https://fontawesome.com/v4/icons/">Font Awesome Icons</a>，蓝色默认 fa fa-safari'));
     $form->addInput($zmki_top_main_one_icon);
     $zmki_top_main_one_url = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_one_url', NULL, 'https://github.com/LightAPIs/WebStackTypechoTheme', _t('<span style="color: #608cee; margin-right:0px;">蓝色模块</span>跳转链接'), _t('输入蓝色模块跳转的链接,'));
     $form->addInput($zmki_top_main_one_url);
     // 顶部模块 红色 文字自定义
     $zmki_top_main_two_name = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_two_name', NULL, 'WebStack_钻芒二开版', _t('<span style="color: #fb5962; margin-right:0px;">红色模块文字</span>'), _t('输入顶部红色模块内的文字，默认 WebStack_钻芒二开版'));
     $form->addInput($zmki_top_main_two_name);
-    $zmki_top_main_two_icon = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_two_icon', NULL, 'fa fa-star', _t('<span style="color: #fb5962; margin-right:0px;">红色模块</span>图标'), _t('自定义红色模块内文字前的 Font Awesome 图标，图标帮助可查看:<a target="_blank" href="http://www.fontawesome.com.cn/icons-ui/">Font Awesome 中文网</a>，红色默认 fa fa-star'));
+    $zmki_top_main_two_icon = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_two_icon', NULL, 'fa fa-star', _t('<span style="color: #fb5962; margin-right:0px;">红色模块</span>图标'), _t('自定义红色模块内文字前的 Font Awesome 图标，图标帮助可查看:<a target="_blank" href="https://fontawesome.com/v4/icons/">Font Awesome Icons</a>，红色默认 fa fa-star'));
     $form->addInput($zmki_top_main_two_icon);
     $zmki_top_main_two_url = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_two_url', NULL, 'https://github.com/wclk/WebStack_ZMKI', _t('<span style="color: #fb5962; margin-right:0px;">红色模块</span>跳转链接'), _t('输入红色模块跳转的链接,'));
     $form->addInput($zmki_top_main_two_url);
     // 顶部模块 黄色 文字自定义
     $zmki_top_main_three_name = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_three_name', NULL, 'WebStack', _t('<span style="color: #fbb359; margin-right:0px;">黄色模块文字</span>'), _t('输入顶部黄色模块内的文字，默认 WebStack'));
     $form->addInput($zmki_top_main_three_name);
-    $zmki_top_main_three_icon = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_three_icon', NULL, 'fa fa-registered', _t('<span style="color: #fbb359; margin-right:0px;">黄色模块</span>图标'), _t('自定义黄色模块内文字前的 Font Awesome 图标，图标帮助可查看:<a target="_blank" href="http://www.fontawesome.com.cn/icons-ui/">Font Awesome 中文网</a>，黄色默认 fa fa-registered'));
+    $zmki_top_main_three_icon = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_three_icon', NULL, 'fa fa-registered', _t('<span style="color: #fbb359; margin-right:0px;">黄色模块</span>图标'), _t('自定义黄色模块内文字前的 Font Awesome 图标，图标帮助可查看:<a target="_blank" href="https://fontawesome.com/v4/icons/">Font Awesome Icons</a>，黄色默认 fa fa-registered'));
     $form->addInput($zmki_top_main_three_icon);
     $zmki_top_main_three_url = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_three_url', NULL, 'https://github.com/WebStackPage/WebStackPage.github.io', _t('<span style="color: #fbb359; margin-right:0px;">黄色模块</span>跳转链接'), _t('输入黄色模块跳转的链接,'));
     $form->addInput($zmki_top_main_three_url);
     // 顶部模块 绿色 文字自定义
     $zmki_top_main_four_name = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_four_name', NULL, 'Typecho', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块文字</span>'), _t('输入顶部绿色模块内的文字，默认 Typecho'));
     $form->addInput($zmki_top_main_four_name);
-    $zmki_top_main_four_icon = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_four_icon', NULL, 'fa fa-diamond', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>图标'), _t('自定义绿色模块内文字前的 Font Awesome 图标，图标帮助可查看:<a target="_blank" href="http://www.fontawesome.com.cn/icons-ui/">Font Awesome 中文网</a>，绿色默认 fa fa-diamond'));
+    $zmki_top_main_four_icon = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_four_icon', NULL, 'fa fa-diamond', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>图标'), _t('自定义绿色模块内文字前的 Font Awesome 图标，图标帮助可查看:<a target="_blank" href="https://fontawesome.com/v4/icons/">Font Awesome Icons</a>，绿色默认 fa fa-diamond'));
     $form->addInput($zmki_top_main_four_icon);
     $zmki_top_main_four_url = new Typecho_Widget_Helper_Form_Element_Text('zmki_top_main_four_url', NULL, 'https://typecho.org/', _t('<span style="color: #53bf6b; margin-right:0px;">绿色模块</span>跳转链接'), _t('输入绿色模块跳转的链接,'));
     $form->addInput($zmki_top_main_four_url);

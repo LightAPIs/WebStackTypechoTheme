@@ -48,6 +48,9 @@
   border: 1px solid #e6e6e6;
   border-radius: 10px;
 }
+.search-input.can-clean {
+  padding: 0 70px 0 45px;
+}
 .search-input:focus {
   outline: none;
   border: 1px solid #2188ff;
@@ -58,6 +61,18 @@ input::-webkit-input-placeholder {
   font-size: 12px;
   letter-spacing: 1px;
   color: #ccc;
+}
+.search-clean {
+  position: absolute;
+  right: 45px;
+  top: 25%;
+  background: transparent;
+  border: none;
+  color: #ddd;
+  font-size: 18px;
+}
+.search-clean:hover {
+  color: #8e262a;
 }
 .search-btn {
   position: absolute;

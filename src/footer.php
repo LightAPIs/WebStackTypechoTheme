@@ -178,6 +178,22 @@ error_reporting(0);
         })
     })();
 </script>
+<?php if($this->options->isSearchClean == '1'): ?>
+  <script type="text/javascript">
+      (function () {
+          const searchCleanBtn = document.getElementById('search-clean');
+          searchCleanBtn && searchCleanBtn.addEventListener('click', e => {
+              e.stopPropagation();
+              const txtInput = document.getElementById('txt');
+              if (txtInput) {
+                  txtInput.value = '';
+                  txtInput.focus();
+              }
+          })
+      })();
+  </script>
+<?php endif; ?>
+
 
 <style>
     <?php if ($this->options->isSearchTop == '1') : ?>

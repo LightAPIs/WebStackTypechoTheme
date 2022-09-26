@@ -258,10 +258,8 @@ EOD;
     // 搜索功能
     $isSearch = new Typecho_Widget_Helper_Form_Element_Radio('isSearch', array('0' => _t('禁用'), '1' => _t('启用')), '1', _t('搜索功能'), _t("是否在主页上启用搜索框"));
     $form->addInput($isSearch);
-    $isSearchTop = new Typecho_Widget_Helper_Form_Element_Radio('isSearchTop', array('0' => _t('禁用'), '1' => _t('启用')), '0', _t('搜索框置顶'), _t('始终将搜索框置顶，即不受页面滚动影响'));
-    $form->addInput($isSearchTop);
     // 搜索框内的清空按钮
-    $isSearchClean = new Typecho_Widget_Helper_Form_Element_Radio('isSearchClean', array('0' => _t('禁用'), '1' => _t('启用')), '0', _t('搜索框内容清空按钮'), _t('在搜索框内一个显示清空内容的按钮'));
+    $isSearchClean = new Typecho_Widget_Helper_Form_Element_Radio('isSearchClean', array('0' => _t('禁用'), '1' => _t('启用')), '0', _t('搜索框内容清空按钮'), _t('在搜索框内显示一个清空内容的按钮'));
     $form->addInput($isSearchClean);
     // 右侧浮动窗
     $fk_zmki = new Typecho_Widget_Helper_Form_Element_Radio('fk_zmki', array('0' => _t('禁用'), '1' => _t('启用')), '1', _t('右侧浮动窗'), _t("是否显示右侧浮动窗，包含返回顶部按钮以及手机端的侧栏切换"));

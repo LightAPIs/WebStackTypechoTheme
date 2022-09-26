@@ -199,16 +199,6 @@ body.night .search-hot-text ul li a small {
   font-size: 12px;
   color: #999;
 }
-.search-engine-tool > span {
-  float: right;
-  width: 25px;
-  height: 15px;
-  background: url('../images/off_on.png') no-repeat 0px 0px;
-  cursor: pointer;
-}
-.search-engine-tool > span.off {
-  background-position: -30px 0px;
-}
 
 .search-engine ul::before {
   content: '';
@@ -412,4 +402,19 @@ body.night .xe-comment-entry .no-img {
     height: 20px;
     background-size: 20px;
   }
+}
+
+input#is-search-top[type=checkbox].iswitch {
+  width: 30px;
+  height: 18px;
+  line-height: 18px;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+input#is-search-top[type=checkbox].iswitch:before {
+  height: 14px;
+  width: 14px;
+}
+input#is-search-top[type=checkbox].iswitch:checked {
+  padding-left: 14px;
 }

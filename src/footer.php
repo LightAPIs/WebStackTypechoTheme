@@ -53,11 +53,12 @@ error_reporting(0);
             e.preventDefault();
             const href = $(this).attr("href");
             let pos = $(href).offset().top;
+            const searchInput = document.querySelector('.search-input');
             if (isMobile) {
-                pos -= <?php echo $this->options->isSearch == '1' && $this->options->isSearchTop == '1' ? 150 : 25; ?>;
+                pos -= searchInput && window.isSearchTop == '1' ? 150 : 25;
                 $('.page-container .sidebar-menu').fadeToggle('normal');
             } else {
-                pos -= <?php echo $this->options->isSearch == '1' && $this->options->isSearchTop == '1' ? 100 : 70; ?>;
+                pos -= searchInput && window.isSearchTop == '1' ? 100 : 70;
             }
             $("html,body").animate({
                 scrollTop: pos
@@ -176,6 +177,25 @@ error_reporting(0);
                 darkList && darkList.classList.remove('open');
             })
         })
+
+        window.isSearchTop = cookie.get('search_top') || '0';
+        const searchTopBtn = document.getElementById('is-search-top');
+        if (searchTopBtn) {
+            searchTopBtn.addEventListener('click', e => {
+                e.stopPropagation();
+                const isTop = cookie.get('search_top');
+                cookie.set('search_top', isTop == '0' ? '1' : '0');
+                window.isSearchTop = isTop == '0' ? '1' : '0';
+                const sousuo = document.querySelector('.sousuo .search');
+                if (sousuo) {
+                    if (window.isSearchTop == '1') {
+                        sousuo.classList.add('is-top');
+                    } else {
+                        sousuo.classList.remove('is-top');
+                    }
+                }
+            })
+        }
     })();
 </script>
 <?php if($this->options->isSearchClean == '1'): ?>
@@ -196,17 +216,13 @@ error_reporting(0);
 
 
 <style>
-    <?php if ($this->options->isSearchTop == '1') : ?>
-    .sousuo .search {
+    .sousuo .search.is-top {
         position: fixed;
     }
-
-    .search-input {
+    .sousuo .search.is-top .search-input {
         -webkit-box-shadow: 0 0 5px 0 #cccccc94;
         box-shadow: 0 0 5px 0 #cccccc94;
     }
-
-    <?php endif; ?>
 
     .my_mode_switch {
         background-image: url("<?php echo THEME_URL ?>/fonts/sun.svg");

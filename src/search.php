@@ -1,5 +1,5 @@
 <section class="sousuo">
-  <div class="search">
+  <div class="search <?php echo isset($_COOKIE['search_top']) && $_COOKIE['search_top'] == '1' ? 'is-top' : ''; ?>">
     <div class="search-box">
             <span class="search-icon"
                   style="background: url(<?php echo THEME_URL ?>/fonts/baidu.svg) 0px 0px; opacity: 1;"></span>
@@ -17,7 +17,7 @@
     <div class="search-engine" style="display: none;">
       <div class="search-engine-head">
         <strong class="search-engine-tit">选择您的默认搜索引擎：</strong>
-        <div class="search-engine-tool">检索已有网址： <span id="hot-btn"></span></div>
+        <div class="search-engine-tool">搜索框置顶： <input id="is-search-top" type="checkbox" class="iswitch iswitch-secondary" <?php echo isset($_COOKIE['search_top']) && $_COOKIE['search_top'] == '1' ? 'checked' : ''; ?>></div>
       </div>
       <ul class="search-engine-list search-engine-list_zmki_ul">
       </ul>

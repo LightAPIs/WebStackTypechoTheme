@@ -3011,7 +3011,6 @@ function search() {
   let savedData = {
     url: 'https://www.baidu.com/s?ie=UTF-8&wd=',
     logo: '/fonts/baidu.svg',
-    hotStatus: true,
   };
   const searchData = [
     {
@@ -3190,7 +3189,7 @@ function search() {
 
   $('#txt').keyup(function (e) {
     if ($(this).val()) {
-      if (e.keyCode == 38 || e.keyCode == 40 || !savedData.hotStatus) {
+      if (e.keyCode == 38 || e.keyCode == 40) {
         return;
       }
       getHotkeyword($(this).val());
@@ -3229,7 +3228,7 @@ function search() {
   });
   $('#txt').focus(function () {
     $('.search-box').css('box-show', 'inset 0 1px 2px rgba(27,31,35,.075), 0 0 0 0.2em rgba(3,102,214,.3)');
-    if ($(this).val() && savedData.hotStatus) {
+    if ($(this).val()) {
       getHotkeyword($(this).val());
     }
   });
@@ -3251,12 +3250,6 @@ function search() {
       $('.search-engine').css('display', 'none');
     }
   );
-  $('#hot-btn').click(function () {
-    $(this).toggleClass('off');
-    savedData.hotStatus = !savedData.hotStatus;
-    localStorage.savedData = JSON.stringify(savedData);
-  });
-  savedData.hotStatus ? $('#hot-btn').removeClass('off') : $('#hot-btn').addClass('off');
 
   $('.search-icon').css('background-size', '32px 32px');
   $('.search-icon').css('background-image', `url(${themeUrl + savedData.logo})`);

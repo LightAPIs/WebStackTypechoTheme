@@ -51,33 +51,33 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <?php endif; ?>
         <!--顶部新增模块开始	-->
         <?php if ($this->options->zmki_top_main == '1') : ?>
-            <div class="zmki_top_main" style="display: flex;">
-                <div class="col-lg-4">
+            <div class="zmki_top_main">
+                <div class="zmki_top_item">
                     <a class="colorful-card zmki_top_one" target="_blank"
                        href="<?php $this->options->zmki_top_main_one_url(); ?>">
                         <i class="<?php $this->options->zmki_top_main_one_icon(); ?>"></i>
-                        <span class="wapnone"><?php $this->options->zmki_top_main_one_name(); ?></span>
+                        <span class="zmki_top_text"><?php $this->options->zmki_top_main_one_name(); ?></span>
                     </a>
                 </div>
-                <div class="col-lg-4">
+                <div class="zmki_top_item">
                     <a class="colorful-card zmki_top_two" target="_blank"
                        href="<?php $this->options->zmki_top_main_two_url(); ?>">
                         <i class="<?php $this->options->zmki_top_main_two_icon(); ?>"></i>
-                        <span class="wapnone"><?php $this->options->zmki_top_main_two_name(); ?></span>
+                        <span class="zmki_top_text"><?php $this->options->zmki_top_main_two_name(); ?></span>
                     </a>
                 </div>
-                <div class="col-lg-4">
+                <div class="zmki_top_item">
                     <a class="colorful-card zmki_top_three" target="_blank"
                        href="<?php $this->options->zmki_top_main_three_url(); ?>">
                         <i class="<?php $this->options->zmki_top_main_three_icon(); ?>"></i>
-                        <span class="wapnone"><?php $this->options->zmki_top_main_three_name(); ?></span>
+                        <span class="zmki_top_text"><?php $this->options->zmki_top_main_three_name(); ?></span>
                     </a>
                 </div>
-                <div class="col-lg-4">
+                <div class="zmki_top_item">
                     <a class="colorful-card zmki_top_four" target="_blank"
                        href="<?php $this->options->zmki_top_main_four_url(); ?>">
                         <i class="<?php $this->options->zmki_top_main_four_icon(); ?>"></i>
-                        <span class="wapnone"><?php $this->options->zmki_top_main_four_name(); ?></span>
+                        <span class="zmki_top_text"><?php $this->options->zmki_top_main_four_name(); ?></span>
                     </a>
                 </div>
             </div>

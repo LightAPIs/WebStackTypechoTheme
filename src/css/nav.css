@@ -277,6 +277,7 @@ body.night .search-engine ul::before {
 }
 .colorful-card i {
   font-size: 18px;
+  margin-left: 5px;
 }
 
 .colorful-card span {
@@ -417,4 +418,30 @@ input#is-search-top[type=checkbox].iswitch:before {
 }
 input#is-search-top[type=checkbox].iswitch:checked {
   padding-left: 14px;
+}
+
+zmki_top_main {
+  display: block;
+}
+.zmki_top_item {
+  width: 25%;
+  float: left;
+  position: relative;
+  height: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (max-width: 768px) {
+  .zmki_top_item {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+.zmki_top_item > a {
+  height: 60px;
+}
+.zmki_top_item .zmki_top_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

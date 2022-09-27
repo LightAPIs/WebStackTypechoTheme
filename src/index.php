@@ -105,7 +105,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                     <?php endif; ?>
                                 </span>
                                     <div class="xe-comment">
-                                    <span href="javascript:void(0);" class="xe-user-name overflowClip_1">
+                                    <span class="xe-user-name overflowClip_1">
                                         <strong><?php $posts->title(); ?></strong>
                                     </span>
                                         <p class="overflowClip_2"><?php echo $posts->fields->text; ?></p>

@@ -87,7 +87,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <?php if (count($categories->children) === 0) : ?>
                 <?php $this->widget('Widget_Archive@category-' . $categories->mid, 'pageSize=10000&type=category', 'mid=' . $categories->mid)->to($posts); ?>
                 <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;"
-                                         id="<?php $categories->name(); ?>"></i><?php $categories->name(); ?></h4>
+                                          data-set-nav="#<?php $categories->name(); ?>"></i><?php $categories->name(); ?></h4>
                 <div class="row">
                     <?php while ($posts->next()) : ?>
                         <div class="col-sm-3">

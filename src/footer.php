@@ -52,7 +52,7 @@ error_reporting(0);
             $(this).parent("li").addClass("active");
             e.preventDefault();
             const href = $(this).attr("href");
-            let pos = $(href).offset().top;
+            let pos = $(`[data-set-nav=${href}]`).offset().top;
             const searchInput = document.querySelector('.search-input');
             if (isMobile) {
                 pos -= searchInput && window.isSearchTop == '1' ? 150 : 25;
